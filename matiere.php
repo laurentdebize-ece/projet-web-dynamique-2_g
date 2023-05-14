@@ -11,9 +11,19 @@ catch (Exception $e)
 $_SESSION['mail']= 'paul.richard@gmail.com' ;
 
 $sql=$bdd->prepare("SELECT nomMatière AS matiere FROM suiviMatière WHERE mailE = ? ");
-$reponse=$sql->execute(array($_SESSION['mail']))
+$reponse=$sql->execute(array($_SESSION['mail']));
 
-//$reponse = $bdd->query("SELECT nomMatière AS matiere FROM suiviMatière WHERE mailE = '".$_SESSION['mail']."'");
+if(isset($_POST["evalE"])){
+    $evaluation= htmlspecialchars($_POST["evalE"]);
+    $matiere = htmlspecialchars($_POST["matiere"]);
+    $competence = htmlspecialchars($_POST["comp"]);
+    $mail = $_SESSION['mail'];
+    
+    $evalE = $bdd->prepare("UPDATE Evaluation SET evalEleve = ? WHERE matière = ? AND receveur = ? AND compétence = ?");
+    $reponse = $evalE->execute(array($evaluation, $matiere, $mail, $competence));
+
+}
+
 ?>
 
 
@@ -31,18 +41,20 @@ $reponse=$sql->execute(array($_SESSION['mail']))
 
 <body>
     <header> 
-        <p>rfzzfze </p>
+        
     </header>
     <div>
     <?php
     $divs = array(
-        array('id' => 'comp1','class'=>'competence','class2'=>'detail','id2'=>'boutton1'),
-        array('id' => 'comp2','class'=>'competence','class2'=>'detail','id2'=>'boutton2'),
-        array('id' => 'comp3','class'=>'competence','class2'=>'detail','id2'=>'boutton2'),
-        array('id' => 'comp4','class'=>'competence','class2'=>'detail','id2'=>'boutton2'),
-        array('id' => 'comp5','class'=>'competence','class2'=>'detail','id2'=>'boutton2'),
-        array('id' => 'comp6','class'=>'competence','class2'=>'detail','id2'=>'boutton2'),
-        array('id' => 'comp7','class'=>'competence','class2'=>'detail','id2'=>'boutton2'),
+        array('id2' => 'comp1','class2'=>'competence','class'=>'detail','id'=>'boutton1','class3'=>'barreE','id3'=>'barreE1',
+        'class4'=>'','id4'=>'boutton1','class5'=>'detail','id5'=>'boutton1'),
+
+        array('id2' => 'comp2','class2'=>'competence','class'=>'detail','id'=>'boutton2'),
+        array('id2' => 'comp3','class2'=>'competence','class'=>'detail','id'=>'boutton2'),
+        array('id2' => 'comp4','class2'=>'competence','class'=>'detail','id'=>'boutton2'),
+        array('id2' => 'comp5','class2'=>'competence','class'=>'detail','id'=>'boutton2'),
+        array('id2' => 'comp6','class2'=>'competence','class'=>'detail','id'=>'boutton2'),
+        array('id2' => 'comp7','class2'=>'competence','class'=>'detail','id'=>'boutton2'),
     );
         
         while ($donnees = $sql->fetch() and $row = array_shift($divs)) {
@@ -50,25 +62,69 @@ $reponse=$sql->execute(array($_SESSION['mail']))
             $matiere = $donnees['matiere'];
             $comp = $bdd->prepare("SELECT nomComp AS comp , descriptions AS descr FROM Compétence WHERE nomMatière = ? ");
             $reponse1=$comp->execute(array($matiere));
-            ?>
 
+            ?>
             <div class="matiere" >
                 <p> Matière : <?php echo $donnees['matiere']; ?><br> </p>
 
-                <button id="<?php echo $row['id2']; ?>" class="<?php echo $row['class2']; ?>">détails</button> 
+                <button id="<?php echo $row['id']; ?>" class="<?php echo $row['class']; ?>">détails</button> 
 
-                <div id="<?php echo $row['id']; ?>" class="<?php echo $row['class']; ?>">
+                <div id="<?php echo $row['id2']; ?>" class="<?php echo $row['class2']; ?>">
                     <?php
                         while ($donnees2 = $comp->fetch()) {
+                            $competence=$donnees2['comp'];
+                            $eval = $bdd->prepare("SELECT * FROM Evaluation WHERE matière = ?  AND receveur = ? AND compétence = ?");
+                            $reponse2= $eval->execute(array($matiere, $_SESSION['mail'], $donnees2['comp']));
                             ?>
                             <p> Compétence : <?php echo $donnees2['comp']; ?><br> </p>
-                            <p> Description : <?php echo $donnees2['descr']; ?><br> </p> 
+                            <p> Description : <?php echo $donnees2['descr']; ?><br> </p>
                             <?php
-                        }
+                                while ($donnees3 = $eval->fetch()){
+                                    if($donnees3['dateEval'] != null){
+                                        ?>
+                                        <?php
+                                        if($donnees3['evalEleve']!= null){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="acquise">Acquise</span>
+                                                span class="en-cours">En cours</span>
+                                                <span class="non-acquise">Non acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        if($donnees3['evalEleve']==NULL){
+                                            ?>
+                                            <form method="post" action="matiere.php">
+                                                <label>votre évaluation:</label><br>
+                                                <label>
+                                                    <input type="radio" name="evalE" value="3" checked="checked">
+                                                    Acquis
+                                                </label>
+                                                <label>    
+                                                    <input type="radio" name="evalE" value="2" >
+                                                    En Cours 
+                                                </label>
+                                                <label>    
+                                                    <input type="radio" name="evalE" value="1" >
+                                                    Non acquis 
+                                                </label>
+                                                <input type="hidden" name="matiere" value= "<?php echo $matiere; ?>">
+                                                <input type="hidden" name="comp" value= "<?php echo $competence; ?>">
+                                                <input type="submit" name="submit"> 
+                                            </form>
+                                            <?php
+                                        }
+                                        ?> 
+                                    <?php
+                                    }
+                                }
+                                ?>
+                                <br><br>
+                                <?php
+                            }
                         ?>
                 </div>
             </div>
-
             <?php 
             }
     ?>
