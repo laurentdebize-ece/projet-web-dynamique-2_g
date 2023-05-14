@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Skillzz <?php echo 'PHP' ?></title>
+	<title>Skillzz</title>
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 </head>
@@ -12,13 +12,13 @@
 
 	<a href="administrateur.php">
 		<header>
-			<span class="admin">Admin</span>
+			<span class="admin">Administrateur</span>
 		</header>
 	</a>
 
 	<div class="container" id="container">
 		<div class="form-container loginP-container">
-			<form method="post" action="traitement.php">
+			<form method="post" action="traitementProf.php">
 				<h1>Connexion professeur</h1>
 				<span>Utiliser compte Professeur</span>
 				<input type="email" placeholder="Email" name="emailProfesseur">
@@ -27,7 +27,7 @@
 			</form>
 		</div>
 		<div class="form-container loginE-container">
-			<form method="post" action="traitement.php">
+			<form method="post" action="traitementEtudiant.php">
 				<h1>Connexion étudiant</h1>
 				<span>Utiliser compte Etudiant</span>
 				<input type="email" placeholder="Email" name="emailEtudiant">
