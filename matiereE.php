@@ -26,7 +26,7 @@ if(isset($_POST["evalE"])){
     }
     else{
         $prof=$bdd->prepare("SELECT * FROM Enseigné WHERE nomMatière = ? AND numClasse = ? ");
-        $reponse=$evalE->execute(array($matiere, $_SESSION['classe']));
+        $reponse=$prof->execute(array($matiere, $_SESSION['classe']));
         while($donnees=$prof->fetch()){
             $mailP=$donnees['mailP'];
         }
@@ -35,6 +35,16 @@ if(isset($_POST["evalE"])){
         $reponse = $evalE->execute(array($mailP, $mail,$competence,$matiere,$evaluation));
     }
 
+}
+if(isset($_POST["update"])){
+    $update= htmlspecialchars($_POST["update"]);
+    $matiere = htmlspecialchars($_POST["matiere"]);
+    $competence = htmlspecialchars($_POST["comp"]);
+    $mail = $_SESSION['mail'];
+
+    $evalE = $bdd->prepare("UPDATE Evaluation SET evalEleve = ? WHERE matière = ? AND receveur = ? AND compétence = ?");
+    $reponse = $evalE->execute(array(null, $matiere, $mail, $competence));
+    
 }
 
 ?>
@@ -54,13 +64,14 @@ if(isset($_POST["evalE"])){
 
 <body>
     <header> 
-        <p>nvevdf
+        <p>aaa
         </p>
     </header>
     <div>
     <?php
 
     $divs = array(
+        //PROBLEME ENTRE JS  ET PHP POUR ACTUALISATION
         array('class'=>'detail','id'=>'boutton1','id2' => 'mat1','class2'=>'mat'),
         array('class'=>'detail','id'=>'boutton2','id2' => 'mat2','class2'=>'mat'),
         array('class'=>'detail','id'=>'boutton2','id2' => 'mat3','class2'=>'mat'),
@@ -71,7 +82,7 @@ if(isset($_POST["evalE"])){
     );
         
         while ($donnees = $sql->fetch() and $row = array_shift($divs)) {
-            /*
+            
             $divsComp = array(
                 array('compID' => 'comp1','classComp'=>'competence'),
                 array('compID' => 'comp2','classComp'=>'competence'),
@@ -81,7 +92,7 @@ if(isset($_POST["evalE"])){
                 array('compID' => 'comp6','classComp'=>'competence'),
                 array('compID' => 'comp7','classComp'=>'competence'),
             );
-            */
+            
             $matiere = $donnees['matiere'];
             $comp = $bdd->prepare("SELECT nomComp AS comp , descriptions AS descr FROM Compétence WHERE nomMatière = ? ");
             $reponse1=$comp->execute(array($matiere));
@@ -92,9 +103,9 @@ if(isset($_POST["evalE"])){
                 <button id="<?php echo $row['id']; ?>" class="<?php echo $row['class']; ?>">détails</button> 
                 <div id="<?php echo $row['id2']; ?>" class="<?php echo $row['class2']; ?>" >
                     <?php
-                        while ($donnees2 = $comp->fetch() ) {
+                        while ($donnees2 = $comp->fetch() and $row2 = array_shift($divsComp)) {
                             ?>
-                            <div class="competence1">
+                            <div class="competence" id="<?php echo $row2['compID']; ?>">
                                 <?php
                                 $competence=$donnees2['comp'];
                                 $eval = $bdd->prepare("SELECT * FROM Evaluation WHERE matière = ?  AND receveur = ? AND compétence = ?");
@@ -105,8 +116,6 @@ if(isset($_POST["evalE"])){
                                 <?php
             
                                     if(($donnees3 = $eval->fetch())!=null){
-
-                                        if($donnees3['dateEval'] != null){
                                             ?>
                                             <?php
                                             if($donnees3['evalEleve']!= null){
@@ -135,8 +144,47 @@ if(isset($_POST["evalE"])){
                                                     <?php
                                                 }
                                                 ?>
+                                                <form method="post" action="matiereE.php">
+                                                    <input type="hidden" name="update" value= "NULL">
+                                                    <input type="hidden" name="matiere" value= "<?php echo $matiere; ?>">
+                                                    <input type="hidden" name="comp" value= "<?php echo $competence; ?>">
+                                                    <button type="submit">modifier</button>
+                                                </form>
                                                 <p>date butoir:</p> <?php 
-                                                echo htmlspecialchars($donnees3['dateEval']); 
+                                                echo htmlspecialchars($donnees3['dateEval']);
+                                                ?> <br> <br> <?php
+                                                ?>
+                                                <p>notation prof :</p><br>
+                                                <?php 
+                                                if($donnees3['evalProf']== 1){
+                                                    ?>
+                                                    <div class="barre">
+                                                        <span class="non-acquise">Non acquise</span>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                else if ($donnees3['evalProf']==2){
+                                                    ?>
+                                                    <div class="barre">
+                                                        <span class="en-cours">en-cours</span>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                else if ($donnees3['evalProf']==3){
+                                                    ?>
+                                                    <div class="barre">
+                                                        <span class="acquise">Acquise</span>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                ?>
+                                                <p>Commentaire prof :</p><br>
+                                                <?php 
+                                                if($donnees3['commentaire']!= null){
+                                                    echo htmlspecialchars($donnees3['commentaire']);
+                                                }
+
+
                                             }
                                             if($donnees3['evalEleve']==NULL){
                                                 ?>
@@ -162,7 +210,6 @@ if(isset($_POST["evalE"])){
                                                 <p>date butoir:</p> <?php 
                                                 echo htmlspecialchars($donnees3['dateEval']); 
                                             }
-                                        }
                                     }
                             
                                 else{
@@ -195,8 +242,12 @@ if(isset($_POST["evalE"])){
                 </div>
             </div>
         <?php 
-        }    
-    ?>
+        }
+        ?>
+        <div class="transverse">
+            
+            
+        </div>    
     </div>
 </body>
 

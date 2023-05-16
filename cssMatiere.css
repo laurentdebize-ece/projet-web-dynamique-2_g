@@ -11,9 +11,12 @@
 }
 
 .competence{
-    display: none;
+    border-width:1px;
+    border-style:double;
+    border-color:black;
+    margin: 20px;
+    padding: 5px;
 }
-
 
 .barre {
     display: flex;

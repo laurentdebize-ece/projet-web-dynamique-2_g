@@ -1,47 +1,25 @@
 $(document).ready(function(){
     
     $('#boutton1').click(function(){
-        $('#mat1').toggle;
-    });
+        $('#mat1').toggle()
+    })
     $('#boutton2').click(function(){
-        $('#mat2').toggle();
-    });
+        $('#mat2').toggle()
+    })
     $('#boutton3').click(function(){
-        $('#mat3').toggle();
-    });
+        $('#mat3').toggle()
+    })
     $('#boutton4').click(function(){
-        $('#mat4').toggle();
-    });
+        $('#mat4').toggle()
+    })
     $('#boutton5').click(function(){
-        $('#mat5').toggle();
-    });
+        $('#mat5').toggle()
+    })
     $('#boutton6').click(function(){
-        $('#mat6').toggle();
-    });
+        $('#mat6').toggle()
+    })
     $('#boutton7').click(function(){
-        $('#mat7').toggle();
-    });
-    
-    $('#boutton1').click(function(){
-        $('#comp1').toggle()
-    });
-    $('#boutton2').click(function(){
-        $('#comp2').toggle()
-    });
-    $('#boutton3').click(function(){
-        $('#comp3').toggle()
-    });
-    $('#boutton4').click(function(){
-        $('#comp4').toggle()
-    });
-    $('#boutton5').click(function(){
-        $('#comp5').toggle()
-    });
-    $('#boutton6').click(function(){
-        $('#comp6').toggle()
-    });
-    $('#boutton7').click(function(){
-        $('#comp7').toggle()
-    });
+        $('#mat7').toggle()
+    })
      
 });
