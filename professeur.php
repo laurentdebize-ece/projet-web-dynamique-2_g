@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="testYouri.css">
-    <title>Document</title>
+    <title>Skillzz_professeur</title>
 </head>
 <body>
-    <p>bonjour</p>
+    <p>je suis sur la page prof</p>
 </body>
 </html>
