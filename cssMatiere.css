@@ -1,0 +1,49 @@
+.matiere{
+    border-width:1px;
+    border-style:double;
+    border-color:black;
+    margin: 20px;
+    padding: 5px;
+}
+
+.mat{
+    display: none;
+}
+
+.competence{
+    border-width:1px;
+    border-style:double;
+    border-color:black;
+    margin: 20px;
+    padding: 5px;
+}
+
+.barre {
+    display: flex;
+    height: 10px;
+    background-color: #e5e5e5;
+    border-radius: 5px;
+    overflow: hidden;
+    
+  }
+  .barre span {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 10px;
+  }
+  .acquise {
+    background-color: green;
+    color: white;
+  }
+  .en-cours {
+    background-color: orange;
+    color: white;
+  }
+  .non-acquise {
+    background-color: red;
+    color: white;
+  }
