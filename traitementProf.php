@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -47,6 +50,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($resultat->rowCount() > 0) {
         // L'utilisateur est connecté avec succès
         echo "Connexion réussie";
+
+        while($donnees = $resultat->fetch())  {
+          $_SESSION['nom'] = $donnees['nom'];
+          $_SESSION['prénom'] = $donnees['prénom'];
+          $_SESSION['mailP'] = $donnees['mailP'];
+        }
+
         header("Location: professeur.php");
       }
       else {

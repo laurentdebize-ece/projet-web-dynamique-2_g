@@ -1,0 +1,72 @@
+header {
+    margin-top: 5px;
+    margin-right: 5px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    float: left;
+    width: 200px;
+}
+
+.menu li a:link, .menu li a:visited {
+    display: block;
+    background: #adf0d1;
+    padding: 6px 10px;
+    border-right: 1px solid #FFF;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    background-color: #00203f;
+    color: #adf0d1; /* Ajout de la couleur du texte lors du survol */
+}
+
+.test {
+    color: #00203f;
+}
+
+.menu li a:active {
+    background-color: #adf0d1;
+}
+
+.menu .sousmenu {
+    list-style-type: none;
+    display: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+}
+
+.menu .sousmenu li {
+    float: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
+.menu .sousmenu li a:link,
+.menu .sousmenu li a:visited {
+    display: block;
+    color: #00203f;
+    text-decoration: none;
+}
+
+.menu .sousmenu li a:hover {
+    background-color: #00203f;
+    color: #adf0d1;
+}
+
+.menu li:hover .sousmenu {
+    display: block;
+}

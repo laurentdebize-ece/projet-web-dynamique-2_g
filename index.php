@@ -1,3 +1,9 @@
+<?php
+if (isset($_SESSION['nom'])) {
+	session_destroy();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
