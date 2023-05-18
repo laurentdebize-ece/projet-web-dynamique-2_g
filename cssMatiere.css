@@ -5,6 +5,40 @@
     margin: 20px;
     padding: 5px;
 }
+.transverse{
+  border-width:1px;
+  border-style:double;
+  border-color:black;
+  margin: 20px;
+  padding: 5px;
+}
+
+.compTransverse{
+  display: none;
+}
+
+.compT{
+  border-width:1px;
+  border-style:double;
+  border-color:black;
+  margin: 20px;
+  padding: 5px;
+}
+.eleve{
+  border-width:1px;
+  border-style:double;
+  border-color:black;
+  margin: 20px;
+  padding: 5px;
+}
+.eleveG{
+  border-width:1px;
+  border-style:double;
+  border-color:black;
+  margin: 20px;
+  padding: 5px;
+  display: none;
+}
 
 .mat{
     display: none;
