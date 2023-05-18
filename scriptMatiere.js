@@ -21,5 +21,28 @@ $(document).ready(function(){
     $('#boutton7').click(function(){
         $('#mat7').toggle()
     })
+    
+    $('#bouttonT').click(function(){
+        $('.compTransverse').toggle()
+    })
+
+    $('#bouttonE1').click(function(){
+        $('#eleveG1').toggle()
+    })
+    $('#bouttonE2').click(function(){
+        $('#eleveG2').toggle()
+    })
+    $('#bouttonE3').click(function(){
+        $('#eleveG3').toggle()
+    })
+    $('#bouttonE4').click(function(){
+        $('#eleveG4').toggle()
+    })
+    $('#bouttonE5').click(function(){
+        $('#eleveG5').toggle()
+    })
+    $('#bouttonE6').click(function(){
+        $('#eleveG6').toggle()
+    })
      
 });
