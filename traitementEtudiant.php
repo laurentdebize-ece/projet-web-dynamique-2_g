@@ -1,15 +1,16 @@
 <?php
+session_start();
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Vérifier si les champs requis ont été remplis
-  if (empty($_POST["emailEtudiant"]) || empty($_POST["mdpEtudiant"])) {
+  if (empty($_POST["mailE"]) || empty($_POST["mdp"])) {
     echo "Tous les champs sont obligatoires.";
   } else {
 
     // Nettoyer les données entrées par l'utilisateur
-    $emailEtudiant = htmlspecialchars($_POST["emailEtudiant"]);
-    $mdpEtudiant = htmlspecialchars($_POST["mdpEtudiant"]);
+    $mailE = htmlspecialchars($_POST["mailE"]);
+    $mdp = htmlspecialchars($_POST["mdp"]);
 
     // Vérifier si l'adresse email est valide
     if (!filter_var($emailEtudiant, FILTER_VALIDATE_EMAIL)) {
@@ -19,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Connexion à la base de données
       $serveur = "localhost";
       $utilisateur = "root";
-      $motdepasse = "root";
+      $motdepasse = "";
       $bdd = "skillzz";
 
       try {
@@ -31,11 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
 
       // Éviter les injections SQL
-      $emailEtudiant = $connexion->quote($emailEtudiant);
-      $mdpEtudiant = $connexion->quote($mdpEtudiant);
+      $mailE = $connexion->quote($mailE);
+      $mdp = $connexion->quote($mdp);
 
       // Requête SQL pour vérifier si l'utilisateur existe
-      $requete = "SELECT * FROM elève WHERE mailE=$emailEtudiant AND mdp=$mdpEtudiant";
+      $requete = "SELECT * FROM eleve WHERE mail=$mailE AND mdp=$mdp";
       try {
         $resultat = $connexion->query($requete);
       } catch(PDOException $e) {
