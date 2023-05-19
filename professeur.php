@@ -22,8 +22,8 @@ session_start();
                     ?>
                 </a>
                 <ul class="sousmenu">
-                    <li><a href="#">Paramètre</a></li>
-                    <li><a href="index.php">Déconnexion</a></li>
+                    <li><a href="#">Mon compte</a></li>
+                    <li><a href="connexion.php">Déconnexion</a></li>
                 </ul>
             </li>
         </ul>
