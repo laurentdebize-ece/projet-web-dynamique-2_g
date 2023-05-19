@@ -15,20 +15,10 @@ body {
 }
 
 header {
-	margin-top: 5px;
-	margin-right: 5px;
-	background-color: #adf0d1;
-	color: #00203f;
-	padding: 10px;
-	position: fixed;
-	top: 0;
-	right: 0;
-	border-radius: 50px;
-	font-size: 16px;
-	font-weight: bold;
-	border: 1px solid #adf0d1;
-	border-color: rgba(0, 32, 63, .45);
-	cursor: pointer;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-weight: bold;
 }
 
 .container{

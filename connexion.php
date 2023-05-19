@@ -10,17 +10,17 @@ if (isset($_SESSION['nom'])) {
 <head>
 	<meta charset="utf-8" />
 	<title>Skillzz</title>
-	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="connexion.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 </head>
 
 <body>
 
-	<a href="administrateur.php">
-		<header>
-			<span class="admin">Administrateur</span>
-		</header>
-	</a>
+	<header>
+		<form action="administrateur.php">
+			<button>Administrateur</button>
+		</form>
+	</header>
 
 	<div class="container" id="container">
 		<div class="form-container loginP-container">
