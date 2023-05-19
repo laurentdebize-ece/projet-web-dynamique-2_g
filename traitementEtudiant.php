@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       else {
         // L'utilisateur n'existe pas ou les informations sont incorrectes
         echo "Adresse email ou mot de passe incorrect.";
-        header("Location:index.php");
+        header("Location:connexion.php");
       }
 
       // Fermer la connexion à la base de données

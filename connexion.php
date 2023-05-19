@@ -58,7 +58,7 @@ if (isset($_SESSION['nom'])) {
 		</div>
 	</div>
 
-	<script src="script.js" charset="utf-8"></script>
+	<script src="scriptConnexion.js" charset="utf-8"></script>
 </body>
 
 </html>
