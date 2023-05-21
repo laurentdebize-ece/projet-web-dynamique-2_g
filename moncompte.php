@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <head>
     <title>Mon Compte </title>
     <meta charset="utf-8" />
