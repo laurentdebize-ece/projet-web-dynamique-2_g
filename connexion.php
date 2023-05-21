@@ -17,7 +17,7 @@ if (isset($_SESSION['nom'])) {
 <body>
 
 	<header>
-		<form action="administrateur.php">
+		<form action="connexionAdmin.php">
 			<button>Administrateur</button>
 		</form>
 	</header>

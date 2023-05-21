@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $_SESSION['numClasse'] = $donnees['numClasse'];
         }
 
-        header("Location: etudiant.php");
+        header("Location: pageEtudiant.php");
       }
       else {
         // L'utilisateur n'existe pas ou les informations sont incorrectes
