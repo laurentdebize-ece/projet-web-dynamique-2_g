@@ -8,5 +8,6 @@
 </head>
 <body>
     <p>je suis sur la page élève</p>
+    <a href="moncompte.php">Compte</a>
 </body>
 </html>
