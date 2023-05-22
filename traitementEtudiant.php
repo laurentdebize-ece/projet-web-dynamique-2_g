@@ -1,5 +1,8 @@
 <?php
 
+
+session_start();
+
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -48,12 +51,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($resultat->rowCount() > 0) {
         // L'utilisateur est connecté avec succès
         echo "Connexion réussie";
-        header("Location: etudiant.php");
+
+        while($donnees = $resultat->fetch())  {
+          $_SESSION['nom'] = $donnees['nom'];
+          $_SESSION['prénom'] = $donnees['prénom'];
+          $_SESSION['mailE'] = $donnees['mailE'];
+          $_SESSION['école'] = $donnees['école'];
+          $_SESSION['numClasse'] = $donnees['numClasse'];
+        }
+
+        header("Location: pageEtudiant.php");
       }
       else {
         // L'utilisateur n'existe pas ou les informations sont incorrectes
         echo "Adresse email ou mot de passe incorrect.";
-        header("Location:index.php");
+        header("Location:connexion.php");
       }
 
       // Fermer la connexion à la base de données
