@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-$_SESSION['mailA'] = 'laurent.debize@gmail.com';
 
 function getDatabaseConnection()
 {

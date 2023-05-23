@@ -1,3 +1,164 @@
-h1{
-    color: green;
+body {
+    display: block;
+    background-color: #F1F1D3;
+    background-image: linear-gradient(white 2px, transparent 2px),
+        linear-gradient(90deg, white 2px, transparent 2px),
+        linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.ml11 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    color: #5ba184;
+    font-weight: 700;
+    font-size: 3.5em;
+    transform: translateX(-50%);
+}
+
+.ml11 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #fff;
+    transform-origin: 0 50%;
+}
+
+.ml11 .line1 {
+    top: 0;
+    left: 0;
+}
+
+.ml11 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
+
+
+
+
+.book {
+    position: absolute;
+    border-radius: 10px;
+    width: 220px;
+    height: 300px;
+    background-color: #E3EBD0;
+    box-shadow: 1px 1px 12px #1b1b1b;
+    transform: preserve-3d;
+    perspective: 2000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #0e0d0d;
+}
+
+#first {
+    top: 50%;
+    left: 10%;
+}
+
+#second {
+    top: 50%;
+    right: 10%;
+}
+
+#third {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#fourth {
+    top: 150%;
+    left: 10%;
+}
+
+#fifth {
+    top: 150%;
+    right: 10%;
+}
+
+.book p {
+    font-size: .8em;
+}
+
+.cover {
+    top: 0;
+    position: absolute;
+    background-color: #C7DDC5;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    transform-origin: 0;
+    box-shadow: 1px 1px 12px #1b1b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book:hover .cover {
+    transition: all 0.5s;
+    transform: rotateY(-100deg);
+}
+
+.cover p {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+
+
+.last-card {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    width: 300px;
+    height: 150px;
+    background: #E3EBD0;
+    border-radius: 5px;
+    border: 1px solid rgba(41, 41, 43, 0.2);
+    transition: all .2s;
+    box-shadow: 12px 12px 2px 1px rgba(41, 41, 43, 0.2);
+    text-align: center;
+    display: block;
+}
+
+.last-card:hover {
+    box-shadow: -12px 12px 2px -1px rgba(41, 41, 43, 0.2);
+}
+
+.last-card #separator {
+    content: '';
+    width: 150px;
+    height: 2px;
+    background: #0e0d0d;
+    position: relative;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    transition: width .2s;
+}
+
+.last-card:hover #separator {
+    width: 200px;
+    transition: width .2s;
 }
