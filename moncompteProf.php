@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,12 +17,12 @@
 <?php include("footerP.php"); ?>
 <?php
 
-session_start();
+
 
 $servername = "localhost";
 $utilisateur = "root";
 $mdp = "root";
-$bdd = "skillzz1";
+$bdd = "Skillzz";
 
 $conn = new mysqli($servername, $utilisateur, $mdp, $bdd);
 
