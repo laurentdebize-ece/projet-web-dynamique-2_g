@@ -74,10 +74,14 @@ function affichage($tabComp){
     foreach($tabComp as $row){
         ?>
         <div class="competence">
-            <p> Compétence : <?php echo $row[0]; ?><br> </p>
-            <p> Description : <?php echo $row[2]; ?><br> </p>
-            <p> Matière : <?php echo $row[1]; ?><br> </p>
             <?php
+            if(isset($row[0])){
+                ?>
+                <p> Compétence : <?php echo $row[0]; ?><br> </p>
+                <p> Description : <?php echo $row[2]; ?><br> </p>
+                <p> Matière : <?php echo $row[1]; ?><br> </p>
+                <?php
+            }
             if(isset($row[4])){
                 ?>
                 <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
@@ -268,10 +272,14 @@ function affichage($tabComp){
                             if($row[1]==$_POST['matiere'] ){
                                 ?>
                                 <div class="competence">
-                                    <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                                    <p> Description : <?php echo $row[2]; ?><br> </p>
-                                    <p> Matière : <?php echo $row[1]; ?><br> </p>
-                                    <?php
+                                <?php
+                                    if(isset($row[0])){
+                                        ?>
+                                        <p> Compétence : <?php echo $row[0]; ?><br> </p>
+                                        <p> Description : <?php echo $row[2]; ?><br> </p>
+                                        <p> Matière : <?php echo $row[1]; ?><br> </p>
+                                        <?php
+                                    }
                                     if(isset($row[4])){
                                         ?>
                                         <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
@@ -348,10 +356,14 @@ function affichage($tabComp){
                             if($row[3]==$_POST['prof'] ){
                                 ?>
                                 <div class="competence">
-                                    <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                                    <p> Description : <?php echo $row[2]; ?><br> </p>
-                                    <p> Matière : <?php echo $row[1]; ?><br> </p>
-                                    <?php
+                                <?php
+                                    if(isset($row[0])){
+                                        ?>
+                                        <p> Compétence : <?php echo $row[0]; ?><br> </p>
+                                        <p> Description : <?php echo $row[2]; ?><br> </p>
+                                        <p> Matière : <?php echo $row[1]; ?><br> </p>
+                                        <?php
+                                    }
                                     if(isset($row[4])){
                                         ?>
                                         <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
