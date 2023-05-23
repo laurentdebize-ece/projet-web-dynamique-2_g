@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function getDatabaseConnection()
 {
     try {
@@ -68,6 +68,17 @@ function deleteUser($mail)
     }
 }
 
+function evaluationProf($mailP,$comp,$dateEval){
+    $bdd = getDatabaseConnection();
+    $mailA = $_SESSION['mailA'];
+    $mailP= $mailP[0];
+    $comp=$comp[0];
+
+    $eval = $bdd->prepare("INSERT INTO Evaluation (demandeur,receveur,compétence,matière,dateEval ) 
+    VALUES (?, ?, ?, ?, ?)");
+    $eval->execute(array($mailA,$mailP,$comp,'compT',$dateEval));
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +100,12 @@ function deleteUser($mail)
     }
     if (isset($_POST["student-edit-name"]) && isset($_POST["student-edit-firstname"]) && isset($_POST["student-edit-email"]) && isset($_POST["student-edit-password"]) && isset($_POST["student-edit-school"]) && isset($_POST["student-edit-classe"])) {
         updateUser($_POST["student-edit-name"], $_POST["student-edit-firstname"], $_POST["student-edit-email"], $_POST["student-edit-password"], $_POST["student-edit-school"], $_POST["student-edit-classe"]);
+    }
+    if (isset($_POST['maListeE'])){
+        $eleve=$_POST['maListeE'];
+        $comp=$_POST['maListeComp'];
+        $date=$_POST['dateEval'];
+        evaluationProf($eleve,$comp,$date);
     }
     $users = getAllUsers();
     ?>
@@ -165,6 +182,9 @@ function deleteUser($mail)
                     stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
         </button>
+        <button class="Btn" id="f-evalP">Evaluation
+            
+        </button>
     </div>
 
     <form id="form-delete" action="Admin-Student.php" method="post">
@@ -222,6 +242,40 @@ function deleteUser($mail)
             <input placeholder="Password" class="subscribe-input" name="student-edit-password" type="text">
             <input placeholder="School" class="subscribe-input" name="student-edit-school" type="text">
             <input placeholder="Classe" class="subscribe-input" name="student-edit-classe" type="number">
+            <button type="submit" class="submit-btn">ENTER</button>
+            <svg class="close-btn" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg" color="#000000">
+                <path
+                    d="M9.879 14.121L12 12m2.121-2.121L12 12m0 0L9.879 9.879M12 12l2.121 2.121M21 3.6v16.8a.6.6 0 01-.6.6H3.6a.6.6 0 01-.6-.6V3.6a.6.6 0 01.6-.6h16.8a.6.6 0 01.6.6z"
+                    stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </div>
+    </form>
+    <form id="form-evalP" action="Admin-Student.php" method="post">
+        <div class="subscribe">
+            <p>Evaluation</p>
+            <div class="listeDerou">
+                <label for="maListeE">Professeur:</label>
+                <select id="maListeE" name="maListeE[]" onchange="chargement()" required>
+                    <?php
+                    $bdd = new PDO('mysql:host=localhost;dbname=Skillzz;charset=utf8', 'root', 'root');
+                    $requete = $bdd->query("SELECT mailE FROM elève");
+                    while ($option = $requete->fetch()) {
+                        echo '<option value="' . $option['mailE'] . '">' . $option['mailE'] . '</option>';
+                    }
+                    ?>
+                </select>
+            </div><br>
+            <div class="listeDerou">
+                <label for="maListeComp">Associated subjects :</label>
+                <select id="maListeComp" name="maListeComp[]" required>
+                    
+                </select>
+            </div><br>
+            <div class="date">
+                <input type="date" name="dateEval" required>
+            </div><br>
+
             <button type="submit" class="submit-btn">ENTER</button>
             <svg class="close-btn" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg" color="#000000">
