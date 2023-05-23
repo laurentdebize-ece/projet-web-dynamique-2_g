@@ -16,6 +16,23 @@
 .compTransverse{
   display: none;
 }
+.ajouter{
+  border-width:1px;
+  border-style:double;
+  border-color:black;
+  margin: 20px;
+  padding: 5px;
+  display: none;
+}
+.modifier{
+  border-width:1px;
+  border-style:double;
+  border-color:black;
+  margin: 20px;
+  padding: 5px;
+  display: none;
+}
+
 
 .compT{
   border-width:1px;
@@ -81,3 +98,5 @@
     background-color: red;
     color: white;
   }
+
+  
