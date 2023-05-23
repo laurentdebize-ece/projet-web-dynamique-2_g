@@ -9,7 +9,7 @@
   <nav>
     <ul class="menu">
       <li><a href="#">Accueil</a></li>
-      <li><a href="#">Mes matières</a></li>
+      <li><a href="matiereE.php">Mes matières</a></li>
       <li><a href="#">Mes compétences</a></li>
       <li><a href="quisommesnous.php"> Qui sommes nous?</a></li>
       <li class="test"><a href="#">
@@ -18,7 +18,7 @@
           ?>
         </a>
         <ul class="sousmenu">
-          <li><a href="moncompte.php">Mon compte</a></li>
+          <li><a href="moncompteEtudiant.php">Mon compte</a></li>
           <li><a href="connexion.php">Déconnexion</a></li>
         </ul>
       </li>
