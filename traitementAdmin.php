@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $_SESSION['mailA'] = $donnees['mailA'];
         }
         
-        header("Location: pageAdmin.php");
+        header("Location: admin_home.php");
       }
       else {
         // L'utilisateur n'existe pas ou les informations sont incorrectes

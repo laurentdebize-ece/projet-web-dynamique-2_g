@@ -72,6 +72,7 @@ function deleteUser($mail)
     }
 }
 
+
 ?>
 
 <!DOCTYPE html>
