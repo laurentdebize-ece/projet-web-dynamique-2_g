@@ -72,6 +72,10 @@ function deleteUser($mail)
     }
 }
 
+function evaluationProf($mail){
+
+}
+    
 
 ?>
 
@@ -179,6 +183,9 @@ function deleteUser($mail)
                     stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
         </button>
+        <button class="Btn" id="f-evalP">Evaluation
+            
+        </button>
     </div>
 
     <form id="form-delete" action="Admin-Teacher.php" method="post">
@@ -195,7 +202,20 @@ function deleteUser($mail)
             </svg>
         </div>
     </form>
-
+    <form id="form-evalP" action="Admin-Teacher.php" method="post">
+        <div class="subscribe">
+            <p>Evaluation</p>
+            <input placeholder="E-mail" class="subscribe-input" name="email-delete" type="email">
+            <br>
+            <button type="submit" class="submit-btn">ENTER</button>
+            <svg class="close-btn" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg" color="#000000">
+                <path
+                    d="M9.879 14.121L12 12m2.121-2.121L12 12m0 0L9.879 9.879M12 12l2.121 2.121M21 3.6v16.8a.6.6 0 01-.6.6H3.6a.6.6 0 01-.6-.6V3.6a.6.6 0 01.6-.6h16.8a.6.6 0 01.6.6z"
+                    stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </div>
+    </form>
     <form id="form-add" action="Admin-Teacher.php" method="post">
         <div class="subscribe">
             <p>ADD</p>
