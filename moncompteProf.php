@@ -22,11 +22,7 @@ session_start();
 $servername = "localhost";
 $utilisateur = "root";
 $mdp = "root";
-<<<<<<< HEAD
-$bdd = "skillzz";
-=======
 $bdd = "Skillzz";
->>>>>>> origin
 
 $conn = new mysqli($servername, $utilisateur, $mdp, $bdd);
 
