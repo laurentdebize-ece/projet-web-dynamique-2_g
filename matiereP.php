@@ -8,7 +8,7 @@ catch (Exception $e)
 {
    die('Erreur : ' . $e->getMessage());
 }
-$_SESSION['mail']= 'Eric.dupond@gmail.com' ;
+
 
 
 $sql=$bdd->prepare("SELECT Distinct nomMatière AS matiere FROM Enseigné WHERE mailP = ? ");
@@ -196,18 +196,12 @@ if(isset($_POST["tous"])){
 </head>
 
 <body>
-<<<<<<< HEAD
     <header> 
         
     </header>
     <?php include("header.php"); ?>
     <?php include("footer.php"); ?>
     <p>aaa</p>
-=======
-    <?php include("headerP.php"); ?>
-    <?php include("footerP.php"); ?>
-    
->>>>>>> origin
     <div>
     <?php
         

@@ -8,8 +8,8 @@ catch (Exception $e)
 {
    die('Erreur : ' . $e->getMessage());
 }
-$_SESSION['mail']= 'paul.richard@gmail.com' ;
-$_SESSION['classe']='1';
+
+
 
 $sql=$bdd->prepare("SELECT nomMatière AS matiere FROM suiviMatière WHERE mailE = ? ");
 $sql->execute(array($_SESSION['mail']));
