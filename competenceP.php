@@ -163,10 +163,10 @@ function affichage($tabComp){
 </head>
 
 <body>
-    <header> 
-        <p>aaaa</p><br>
-        <?php echo $_SESSION['mail']; ?>
-    </header>
+
+    <?php include("headerP.php"); ?>
+    <?php include("footerP.php"); ?>
+
     <div>
         <form action="competenceP.php" method="post">
             <button type="submit" name="tri" value='NULL'> Default </button>

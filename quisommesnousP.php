@@ -4,8 +4,8 @@
 	<link rel="stylesheet" type="text/css" href="quisommesnous.css">
 </head>
 <body>
-    <?php include("header.php"); ?>
-    <?php include("footer.php"); ?>
+    <?php include("headerP.php"); ?>
+    <?php include("footerP.php"); ?>
     <div class="content">
         <section class="section">
             <h2>Notre histoire</h2>
