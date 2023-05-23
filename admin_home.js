@@ -2,6 +2,7 @@ const i_subject = document.getElementById('i-sub');
 const i_skillzz = document.getElementById('i-ski');
 const i_student = document.getElementById('i-stu');
 const i_teacher = document.getElementById('i-tea');
+const i_deco = document.getElementById('i-dec');
 
 i_student.addEventListener('click', () => {
     window.location.href = 'Admin-Student.php';
@@ -17,6 +18,10 @@ i_teacher.addEventListener('click', () => {
 
 i_subject.addEventListener('click', () => {
     window.location.href = 'Admin-Subject.php';
+});
+
+i_deco.addEventListener('click', () => {
+    window.location.href = 'connexion.php';
 });
 
 
