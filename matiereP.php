@@ -196,12 +196,18 @@ if(isset($_POST["tous"])){
 </head>
 
 <body>
+<<<<<<< HEAD
     <header> 
         
     </header>
     <?php include("header.php"); ?>
     <?php include("footer.php"); ?>
     <p>aaa</p>
+=======
+    <?php include("headerP.php"); ?>
+    <?php include("footerP.php"); ?>
+    
+>>>>>>> origin
     <div>
     <?php
         

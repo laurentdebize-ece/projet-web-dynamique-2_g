@@ -14,8 +14,8 @@ session_start();
 </head>
 
 <body>
-    <?php include("header.php"); ?>
-    <?php include("footer.php"); ?>
+    <?php include("headerP.php"); ?>
+    <?php include("footerP.php"); ?>
 
 
     <br>

@@ -63,10 +63,11 @@ if(isset($_POST["update"])){
 </head>
 
 <body>
-    <header> 
-        <p>aaa
-        </p>
-    </header>
+
+    <?php include("headerE.php"); ?>
+    <?php include("footerE.php"); ?>
+
+
     <div>
     <?php
 
