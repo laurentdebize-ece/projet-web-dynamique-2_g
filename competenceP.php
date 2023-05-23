@@ -166,7 +166,6 @@ function affichage($tabComp){
 
     <?php include("headerP.php"); ?>
     <?php include("footerP.php"); ?>
-
     <div>
         <form action="competenceP.php" method="post">
             <button type="submit" name="tri" value='NULL'> Default </button>
