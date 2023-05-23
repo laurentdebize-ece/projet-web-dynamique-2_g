@@ -59,7 +59,7 @@ if(isset($_POST["tous"])){
         $dateEval= htmlspecialchars($_POST["dateEval"]);
         $matiere = htmlspecialchars($_POST["matiereEval"]);
         $competence = htmlspecialchars($_POST["competenceEval"]);
-        $mail = $_SESSION['mail'];
+        $mail = $_SESSION['mailP'];
         $tableauJSON = $_POST["eleveMatiere"];
         $eleveEval =json_decode($tableauJSON, true);
         $nbEleve = htmlspecialchars($_POST["nbEleve"]);
@@ -196,9 +196,11 @@ if(isset($_POST["tous"])){
 </head>
 
 <body>
+
     <?php include("headerP.php"); ?>
     <?php include("footerP.php"); ?>
     
+
     <div>
     <?php
         
@@ -704,6 +706,9 @@ if(isset($_POST["tous"])){
 
         <button  class="AjouterB">Ajouter</button> 
     </div>
+    <footer>
+        <?php include("footerP.php"); ?>
+    </footer>
 </body>
 
 </html>

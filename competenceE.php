@@ -69,7 +69,85 @@ foreach (range(1, 100) as $num) {
     $divs['id' . $index] = $element2;
     $index++;
 }
-
+function affichage($tabComp){
+    foreach($tabComp as $row){
+        ?>
+        <div class="competence">
+            <?php
+            if(isset($row[0])){
+                ?>
+                <p> Compétence : <?php echo $row[0]; ?><br> </p>
+                <p> Description : <?php echo $row[2]; ?><br> </p>
+                <p> Matière : <?php echo $row[1]; ?><br> </p>
+                <?php
+            }
+            if(isset($row[4])){
+                ?>
+                <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
+                <?php
+            }
+            if(isset($row[3])){
+                ?>
+                <p> Demandeur : <?php echo $row[3]; ?><br> </p>
+                <?php
+            }
+            if(isset($row[5])){
+                ?>
+                <p> Eval eleve : <br> </p>
+                <?php
+                if($row[5]== 1){
+                    ?>
+                    <div class="barre">
+                        <span class="non-acquise">Non acquise</span>
+                    </div>
+                    <?php
+                }
+                else if ($row[5]==2){
+                    ?>
+                    <div class="barre">
+                        <span class="en-cours">en-cours</span>
+                    </div>
+                    <?php
+                }
+                else if ($row[5]==3){
+                    ?>
+                    <div class="barre">
+                        <span class="acquise">Acquise</span>
+                    </div>
+                    <?php
+                }
+            }    
+            if(isset($row[6])){
+                ?>
+                <p> Eval Prof : <br> </p>
+                <?php
+                if($row[6]== 1){
+                    ?>
+                    <div class="barre">
+                        <span class="non-acquise">Non acquise</span>
+                    </div>
+                    <?php
+                }
+                else if ($row[6]==2){
+                    ?>
+                    <div class="barre">
+                        <span class="en-cours">en-cours</span>
+                    </div>
+                    <?php
+                }
+                else if ($row[6]==3){
+                    ?>
+                    <div class="barre">
+                        <span class="acquise">Acquise</span>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+        <?php    
+    }
+}
 ?>
 
 
@@ -137,130 +215,14 @@ foreach (range(1, 100) as $num) {
                     usort($tabComp, function($a, $b) {
                         return strcmp($a[0], $b[0]);
                     });
-                    foreach($tabComp as $row){
-                        ?>
-                        <div class="competence">
-                            <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                            <p> Description : <?php echo $row[2]; ?><br> </p>
-                            <p> Matière : <?php echo $row[1]; ?><br> </p>
-                            <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
-                            <p> Demandeur : <?php echo $row[3]; ?><br> </p>
-                            <p> Eval eleve : <br> </p>
-                            <?php
-                            if($row[5]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                            <p> Eval Prof : <br> </p>
-                            <?php
-                            if($row[6]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                        <?php    
-                    } 
+                    affichage($tabComp);
                                 
                 }
                 else if($_POST['tri']==2){//décroissant aplabétique
                     usort($tabComp, function($a, $b) {
                         return strcmp($b[0], $a[0]);
                     });
-                    foreach($tabComp as $row){
-                        ?>
-                        <div class="competence">
-                            <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                            <p> Description : <?php echo $row[2]; ?><br> </p>
-                            <p> Matière : <?php echo $row[1]; ?><br> </p>
-                            <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
-                            <p> Demandeur : <?php echo $row[3]; ?><br> </p>
-                            <p> Eval eleve : <br> </p>
-                            <?php
-                            if($row[5]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                            <p> Eval Prof : <br> </p>
-                            <?php
-                            if($row[6]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                        <?php    
-                    } 
+                    affichage($tabComp);
                 }
                 else if ($_POST['tri']==3){//date croissante
                     usort($tabComp, function($a, $b) {
@@ -273,65 +235,7 @@ foreach (range(1, 100) as $num) {
                     
                         return ($dateA < $dateB) ? -1 : 1;
                     });
-                    foreach($tabComp as $row){
-                        ?>
-                        <div class="competence">
-                            <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                            <p> Description : <?php echo $row[2]; ?><br> </p>
-                            <p> Matière : <?php echo $row[1]; ?><br> </p>
-                            <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
-                            <p> Demandeur : <?php echo $row[3]; ?><br> </p>
-                            <p> Eval eleve : <br> </p>
-                            <?php
-                            if($row[5]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                            <p> Eval Prof : <br> </p>
-                            <?php
-                            if($row[6]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                        <?php    
-                    } 
+                    affichage($tabComp);
 
                 }
                 else if ($_POST['tri']==4){//date décroissante
@@ -345,320 +249,184 @@ foreach (range(1, 100) as $num) {
                     
                         return ($dateA > $dateB) ? -1 : 1;
                     });
-                    foreach($tabComp as $row){
-                        ?>
-                        <div class="competence">
-                            <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                            <p> Description : <?php echo $row[2]; ?><br> </p>
-                            <p> Matière : <?php echo $row[1]; ?><br> </p>
-                            <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
-                            <p> Demandeur : <?php echo $row[3]; ?><br> </p>
-                            <p> Eval eleve : <br> </p>
-                            <?php
-                            if($row[5]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                            <p> Eval Prof : <br> </p>
-                            <?php
-                            if($row[6]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                        <?php    
-                    }
+                    affichage($tabComp);
 
                 }
                 else if ($_POST['tri']==5){//matiere
                     
                     foreach($tabComp as $row ){
-                        if($row[1]==$_POST['matiere'] ){
-                            ?>
-                            <div class="competence">
-                                <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                                <p> Description : <?php echo $row[2]; ?><br> </p>
-                                <p> Matière : <?php echo $row[1]; ?><br> </p>
-                                <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
-                                <p> Demandeur : <?php echo $row[3]; ?><br> </p>
-                                <p> Eval eleve : <br> </p>
-                                <?php
-                                if($row[5]== 1){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="non-acquise">Non acquise</span>
-                                    </div>
-                                    <?php
-                                }
-                                else if ($row[5]==2){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="en-cours">en-cours</span>
-                                    </div>
-                                    <?php
-                                }
-                                else if ($row[5]==3){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="acquise">Acquise</span>
-                                    </div>
-                                    <?php
-                                }
+                        if(isset ($row[1])){
+                            if($row[1]==$_POST['matiere'] ){
                                 ?>
-                                <p> Eval Prof : <br> </p>
+                                <div class="competence">
                                 <?php
-                                if($row[6]== 1){
+                                    if(isset($row[0])){
+                                        ?>
+                                        <p> Compétence : <?php echo $row[0]; ?><br> </p>
+                                        <p> Description : <?php echo $row[2]; ?><br> </p>
+                                        <p> Matière : <?php echo $row[1]; ?><br> </p>
+                                        <?php
+                                    }
+                                    if(isset($row[4])){
+                                        ?>
+                                        <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
+                                        <?php
+                                    }
+                                    if(isset($row[3])){
+                                        ?>
+                                        <p> Demandeur : <?php echo $row[3]; ?><br> </p>
+                                        <?php
+                                    }
+                                    if(isset($row[5])){
+                                        ?>
+                                        <p> Eval eleve : <br> </p>
+                                        <?php
+                                        if($row[5]== 1){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="non-acquise">Non acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($row[5]==2){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="en-cours">en-cours</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($row[5]==3){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="acquise">Acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                    }    
+                                    if(isset($row[6])){
+                                        ?>
+                                        <p> Eval Prof : <br> </p>
+                                        <?php
+                                        if($row[6]== 1){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="non-acquise">Non acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($row[6]==2){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="en-cours">en-cours</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($row[6]==3){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="acquise">Acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                    }
                                     ?>
-                                    <div class="barre">
-                                        <span class="non-acquise">Non acquise</span>
-                                    </div>
-                                    <?php
-                                }
-                                else if ($row[6]==2){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="en-cours">en-cours</span>
-                                    </div>
-                                    <?php
-                                }
-                                else if ($row[6]==3){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="acquise">Acquise</span>
-                                    </div>
-                                    <?php
-                                }
-                            
-                                ?>
-                            </div>
-                            <?php
+                                </div>
+                                <?php
+                            }
                         }    
                     }
                 }
                 else if ($_POST['tri']==6){//prof
                     
                     foreach($tabComp as $row ){
-                        if($row[3]==$_POST['prof'] ){
-                            ?>
-                            <div class="competence">
-                                <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                                <p> Description : <?php echo $row[2]; ?><br> </p>
-                                <p> Matière : <?php echo $row[1]; ?><br> </p>
-                                <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
-                                <p> Demandeur : <?php echo $row[3]; ?><br> </p>
-                                <p> Eval eleve : <br> </p>
-                                <?php
-                                if($row[5]== 1){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="non-acquise">Non acquise</span>
-                                    </div>
-                                    <?php
-                                }
-                                else if ($row[5]==2){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="en-cours">en-cours</span>
-                                    </div>
-                                    <?php
-                                }
-                                else if ($row[5]==3){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="acquise">Acquise</span>
-                                    </div>
-                                    <?php
-                                }
+                        if(isset ($row[3])){
+                            if($row[3]==$_POST['prof'] ){
                                 ?>
-                                <p> Eval Prof : <br> </p>
+                                <div class="competence">
                                 <?php
-                                if($row[6]== 1){
+                                    if(isset($row[0])){
+                                        ?>
+                                        <p> Compétence : <?php echo $row[0]; ?><br> </p>
+                                        <p> Description : <?php echo $row[2]; ?><br> </p>
+                                        <p> Matière : <?php echo $row[1]; ?><br> </p>
+                                        <?php
+                                    }
+                                    if(isset($row[4])){
+                                        ?>
+                                        <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
+                                        <?php
+                                    }
+                                    if(isset($row[3])){
+                                        ?>
+                                        <p> Demandeur : <?php echo $row[3]; ?><br> </p>
+                                        <?php
+                                    }
+                                    if(isset($row[5])){
+                                        ?>
+                                        <p> Eval eleve : <br> </p>
+                                        <?php
+                                        if($row[5]== 1){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="non-acquise">Non acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($row[5]==2){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="en-cours">en-cours</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($row[5]==3){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="acquise">Acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                    }    
+                                    if(isset($row[6])){
+                                        ?>
+                                        <p> Eval Prof : <br> </p>
+                                        <?php
+                                        if($row[6]== 1){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="non-acquise">Non acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($row[6]==2){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="en-cours">en-cours</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($row[6]==3){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="acquise">Acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                    }
                                     ?>
-                                    <div class="barre">
-                                        <span class="non-acquise">Non acquise</span>
-                                    </div>
-                                    <?php
-                                }
-                                else if ($row[6]==2){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="en-cours">en-cours</span>
-                                    </div>
-                                    <?php
-                                }
-                                else if ($row[6]==3){
-                                    ?>
-                                    <div class="barre">
-                                        <span class="acquise">Acquise</span>
-                                    </div>
-                                    <?php
-                                }
-                            
-                                ?>
-                            </div>
-                            <?php
-                        }    
+                                </div>
+                                <?php
+                            }
+                        }        
                     }
                 }
             }
             else{
-                foreach($tabComp as $row){
-                    ?>
-                    <div class="competence">
-                        <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                        <p> Description : <?php echo $row[2]; ?><br> </p>
-                        <p> Matière : <?php echo $row[1]; ?><br> </p>
-                        <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
-                        <p> Demandeur : <?php echo $row[3]; ?><br> </p>
-                        <p> Eval eleve : <br> </p>
-                            <?php
-                            if($row[5]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                            <p> Eval Prof : <br> </p>
-                            <?php
-                            if($row[6]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                    </div>
-                    <?php    
-                } 
+                affichage($tabComp);
             }
         }
         else{
-            foreach($tabComp as $row){
-                ?>
-                <div class="competence">
-                    <p> Compétence : <?php echo $row[0]; ?><br> </p>
-                    <p> Description : <?php echo $row[2]; ?><br> </p>
-                    <p> Matière : <?php echo $row[1]; ?><br> </p>
-                    <p> Date Evaluation : <?php echo $row[4]; ?><br> </p>
-                    <p> Demandeur : <?php echo $row[3]; ?><br> </p>
-                    <p> Eval eleve : <br> </p>
-                            <?php
-                            if($row[5]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[5]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                            <p> Eval Prof : <br> </p>
-                            <?php
-                            if($row[6]== 1){
-                                ?>
-                                <div class="barre">
-                                    <span class="non-acquise">Non acquise</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==2){
-                                ?>
-                                <div class="barre">
-                                    <span class="en-cours">en-cours</span>
-                                </div>
-                                <?php
-                            }
-                            else if ($row[6]==3){
-                                ?>
-                                <div class="barre">
-                                    <span class="acquise">Acquise</span>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                </div>
-                <?php    
-            } 
+            affichage($tabComp); 
         }
         ?>   
     </div>

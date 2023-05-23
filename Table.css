@@ -127,7 +127,8 @@ tr:nth-child(even) {
 
 #form-delete,
 #form-add,
-#form-edit {
+#form-edit,
+#form-evalP {
     position: absolute;
     bottom: 5%;
     left: 100%;
@@ -138,7 +139,8 @@ tr:nth-child(even) {
 
 #form-delete.active,
 #form-add.active,
-#form-edit.active {
+#form-edit.active,
+#form-evalP.active {
     left: 50%;
     opacity: 1;
     visibility: visible;
@@ -168,6 +170,16 @@ tr:nth-child(even) {
 }
 
 #form-edit .subscribe {
+    position: relative;
+    height: 300px;
+    width: 240px;
+    padding: 20px;
+    background-color: #FFF;
+    border-radius: 4px;
+    color: #333;
+    box-shadow: 0px 0px 60px 5px rgba(0, 0, 0, 0.4);
+}
+#form-evalP .subscribe {
     position: relative;
     height: 300px;
     width: 240px;
