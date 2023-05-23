@@ -8,16 +8,21 @@ catch (Exception $e)
 {
    die('Erreur : ' . $e->getMessage());
 }
+$sql=$bdd->prepare("SELECT * FROM elève WHERE mailE = ? ");
+$reponse=$sql->execute(array($_SESSION['mailE']));
 
+while($donnees = $sql->fetch()){
+    $_SESSION['classe'] = $donnees['numClasse'];
+}
 
 $sql=$bdd->prepare("SELECT nomMatière AS matiere FROM suiviMatière WHERE mailE = ? ");
-$reponse=$sql->execute(array($_SESSION['mail']));
+$reponse=$sql->execute(array($_SESSION['mailE']));
 
 if(isset($_POST["evalE"])){
     $evaluation= htmlspecialchars($_POST["evalE"]);
     $matiere = htmlspecialchars($_POST["matiere"]);
     $competence = htmlspecialchars($_POST["comp"]);
-    $mail = $_SESSION['mail'];
+    $mail = $_SESSION['mailE'];
 
     if($_POST["auto"]==0){
         $evalE = $bdd->prepare("UPDATE Evaluation SET evalEleve = ? WHERE matière = ? AND receveur = ? AND compétence = ?");
@@ -39,7 +44,7 @@ if(isset($_POST["update"])){
     $update= htmlspecialchars($_POST["update"]);
     $matiere = htmlspecialchars($_POST["matiere"]);
     $competence = htmlspecialchars($_POST["comp"]);
-    $mail = $_SESSION['mail'];
+    $mail = $_SESSION['mailE'];
 
     $evalE = $bdd->prepare("UPDATE Evaluation SET evalEleve = ? WHERE matière = ? AND receveur = ? AND compétence = ?");
     $reponse = $evalE->execute(array(null, $matiere, $mail, $competence));
@@ -65,7 +70,7 @@ if(isset($_POST["update"])){
 
     <?php include("headerE.php"); ?>
     <?php include("footerE.php"); ?>
-
+    <p>aa</p>
 
     <div>
     <?php
@@ -109,7 +114,7 @@ if(isset($_POST["update"])){
                                 <?php
                                 $competence=$donnees2['comp'];
                                 $eval = $bdd->prepare("SELECT * FROM Evaluation WHERE matière = ?  AND receveur = ? AND compétence = ?");
-                                $reponse2= $eval->execute(array($matiere, $_SESSION['mail'], $donnees2['comp']));
+                                $reponse2= $eval->execute(array($matiere, $_SESSION['mailE'], $donnees2['comp']));
                                 ?>
                                 <p> Compétence : <?php echo $donnees2['comp']; ?><br> </p>
                                 <p> Description : <?php echo $donnees2['descr']; ?><br> </p>
@@ -247,7 +252,7 @@ if(isset($_POST["update"])){
         <div class="transverse">
             <?php
             $matiereSuivi = $bdd->prepare("SELECT nomMatière AS matiere FROM suiviMatière WHERE mailE = ?");
-            $reponse1 = $matiereSuivi->execute(array($_SESSION['mail']));
+            $reponse1 = $matiereSuivi->execute(array($_SESSION['mailE']));
             
             $j = 0;
             $compT = array();
@@ -290,7 +295,7 @@ if(isset($_POST["update"])){
 
                                 <?php
                                 $eval = $bdd->prepare("SELECT * FROM evaluation WHERE receveur = ?  and compétence = ?");
-                                $eval->execute(array($_SESSION['mail'],$donnees5['nomCompT']));
+                                $eval->execute(array($_SESSION['mailE'],$donnees5['nomCompT']));
                                 if(($donnees3 = $eval->fetch())!=null){
                                     if($donnees3['evalEleve']!= null){
                                         ?>

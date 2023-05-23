@@ -12,10 +12,10 @@ catch (Exception $e)
 
 
 $sql=$bdd->prepare("SELECT Distinct nomMatière AS matiere FROM Enseigné WHERE mailP = ? ");
-$reponse=$sql->execute(array($_SESSION['mail']));
+$reponse=$sql->execute(array($_SESSION['mailP']));
 
 $sql2=$bdd->prepare("SELECT * FROM Enseigné WHERE mailP = ? ");
-$reponse=$sql2->execute(array($_SESSION['mail']));
+$reponse=$sql2->execute(array($_SESSION['mailP']));
 $j=1;
 $classe=array();
 while ($donnees = $sql2->fetch()) {
@@ -59,7 +59,7 @@ if(isset($_POST["tous"])){
         $dateEval= htmlspecialchars($_POST["dateEval"]);
         $matiere = htmlspecialchars($_POST["matiereEval"]);
         $competence = htmlspecialchars($_POST["competenceEval"]);
-        $mail = $_SESSION['mail'];
+        $mail = $_SESSION['mailP'];
         $tableauJSON = $_POST["eleveMatiere"];
         $eleveEval =json_decode($tableauJSON, true);
         $nbEleve = htmlspecialchars($_POST["nbEleve"]);
@@ -88,7 +88,7 @@ if(isset($_POST["tous"])){
         $dateEval= htmlspecialchars($_POST["dateEval"]);
         $matiere = htmlspecialchars($_POST["matiereEval"]);
         $competence = htmlspecialchars($_POST["competenceEval"]);
-        $mail = $_SESSION['mail'];
+        $mail = $_SESSION['mailP'];
         $eleveEval= htmlspecialchars($_POST["eleveMatiere"]);
     
         $evalE = $bdd->prepare("INSERT INTO Evaluation (demandeur,receveur,compétence,matière,dateEval ) 
@@ -102,7 +102,7 @@ if(isset($_POST["tous"])){
         $commentaire= htmlspecialchars($_POST["commentaire"]);
         $matiere = htmlspecialchars($_POST["matiere"]);
         $competence = htmlspecialchars($_POST["comp"]);
-        $mail = $_SESSION['mail'];
+        $mail = $_SESSION['mailP'];
         $eleve= htmlspecialchars($_POST["eleve"]);
 
         $evalP = $bdd->prepare("UPDATE Evaluation SET evalProf = ? WHERE matière = ? AND receveur = ? AND compétence = ?");
@@ -116,7 +116,7 @@ if(isset($_POST["tous"])){
         
         $matiere = htmlspecialchars($_POST["matiere"]);
         $competence = htmlspecialchars($_POST["comp"]);
-        $mail = $_SESSION['mail'];
+        $mail = $_SESSION['mailP'];
         $eleve= htmlspecialchars($_POST["eleve"]);
 
         $evalP = $bdd->prepare("UPDATE Evaluation SET evalProf = ? WHERE matière = ? AND receveur = ? AND compétence = ?");
@@ -199,8 +199,8 @@ if(isset($_POST["tous"])){
     <header> 
         
     </header>
-    <?php include("header.php"); ?>
-    <?php include("footer.php"); ?>
+    <?php include("headerP.php"); ?>
+
     <p>aaa</p>
     <div>
     <?php
@@ -293,7 +293,7 @@ if(isset($_POST["tous"])){
                                     for($i = $increment; $i >= 0 ; $i--){
                                         if(isset($eleveMatière[$i])){
                                             $eval = $bdd->prepare("SELECT * FROM Evaluation WHERE receveur = ? and demandeur = ? and compétence = ?");
-                                            $reponse3= $eval->execute(array($eleveMatière[$i],$_SESSION['mail'],$competence));
+                                            $reponse3= $eval->execute(array($eleveMatière[$i],$_SESSION['mailP'],$competence));
                                             ?>
                                             <div class="eleve">
                                                 <?php
@@ -466,7 +466,7 @@ if(isset($_POST["tous"])){
         <div class="transverse">
             <?php
             $matiereEns=$bdd->prepare("SELECT Distinct nomMatière AS matiere FROM Enseigné WHERE mailP = ? ");
-            $reponse=$matiereEns->execute(array($_SESSION['mail']));
+            $reponse=$matiereEns->execute(array($_SESSION['mailP']));
 
             $z=0;
             $j = 0;
@@ -707,6 +707,9 @@ if(isset($_POST["tous"])){
 
         <button  class="AjouterB">Ajouter</button> 
     </div>
+    <footer>
+        <?php include("footerP.php"); ?>
+    </footer>
 </body>
 
 </html>

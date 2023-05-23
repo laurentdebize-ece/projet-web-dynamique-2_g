@@ -12,7 +12,7 @@ catch (Exception $e)
 
 
 $sql=$bdd->prepare("SELECT nomMatière AS matiere FROM suiviMatière WHERE mailE = ? ");
-$sql->execute(array($_SESSION['mail']));
+$sql->execute(array($_SESSION['mailE']));
 $tabComp=array(array());
 $increment=0;
 
@@ -26,7 +26,7 @@ while ($donnees = $sql->fetch() ) {
         $tabComp[$increment][2]=$donnees2['descr'];
 
         $sql2=$bdd->prepare("SELECT * FROM evaluation WHERE receveur = ? and compétence = ? ");
-        $sql2->execute(array($_SESSION['mail'],$donnees2['comp']));
+        $sql2->execute(array($_SESSION['mailE'],$donnees2['comp']));
 
         while ($donnees2 = $sql2->fetch() ) {
             $tabComp[$increment][3]=$donnees2['demandeur'];
@@ -89,7 +89,7 @@ foreach (range(1, 100) as $num) {
 <body>
     <header> 
         <p>aa</p><br>
-        <?php echo $_SESSION['mail']; ?>
+        <?php echo $_SESSION['mailE']; ?>
     </header>
     <div>
         <form action="competenceE.php" method="post">
