@@ -72,7 +72,6 @@ if(isset($_POST["update"])){
 
     <?php include("headerE.php"); ?>
     <?php include("footerE.php"); ?>
-    <p>aa</p>
 
     <div>
     <?php
@@ -107,7 +106,7 @@ if(isset($_POST["update"])){
             ?>
             <div class="matiere">
                 <p> Matière : <?php echo $donnees['matiere']; ?><br> </p>
-                <button id="<?php echo $row['id']; ?>" class="<?php echo $row['class']; ?>">détails</button> 
+                <button id="<?php echo $row['id']; ?>" class="<?php echo $row['class']; ?> full-rounded">détails</button> 
                 <div id="<?php echo $row['id2']; ?>" class="<?php echo $row['class2']; ?>" >
                     <?php
                         while ($donnees2 = $comp->fetch() and $row2 = array_shift($divsComp)) {
@@ -154,8 +153,8 @@ if(isset($_POST["update"])){
                                                 <form method="post" action="matiereE.php">
                                                     <input type="hidden" name="update" value= "NULL">
                                                     <input type="hidden" name="matiere" value= "<?php echo $matiere; ?>">
-                                                    <input type="hidden" name="comp" value= "<?php echo $competence; ?>">
-                                                    <button type="submit">modifier</button>
+                                                    <input type="hidden" name="comp" value= "<?php echo $competence; ?>"><br>
+                                                    <button type="submit" class="full-rounded">modifier</button>
                                                 </form>
                                                 <p>date butoir:</p> <?php 
                                                 echo htmlspecialchars($donnees3['dateEval']);
@@ -281,7 +280,7 @@ if(isset($_POST["update"])){
             );
             ?>
             <p> Compétence Transverse<br> </p>
-            <button id="bouttonT" class="detail">détails</button> 
+            <button id="bouttonT" class="detail full-rounded">détails</button> 
             <div class="compTransverse">
                 <?php
                 for ($i = $j - 1; $i >= 0; $i--) {
