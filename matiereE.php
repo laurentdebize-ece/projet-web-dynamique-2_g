@@ -245,8 +245,55 @@ if(isset($_POST["update"])){
         }
         ?>
         <div class="transverse">
+            <?php
+            $matiereSuivi = $bdd->prepare("SELECT nomMatière AS matiere FROM suiviMatière WHERE mailE = ?");
+            $reponse1 = $matiereSuivi->execute(array($_SESSION['mail']));
             
+            $j = 0;
+            $compT = array();
+            while ($donnees = $matiereSuivi->fetch()) {
+                $Association = $bdd->prepare("SELECT nomCompT AS nom FROM Association WHERE nomMatière = ?");
+                $reponse1 = $Association->execute(array($donnees['matiere']));
             
+                while ($donnees2 = $Association->fetch()) {
+                    $compT[$j] = strtolower(trim($donnees2['nom']));
+                    $j = $j + 1;
+                }
+            }
+            
+            $compTunique = array_unique($compT);
+            
+            $divsCompT = array(
+                array('id'=>'compT1','id2' => 'mat1'),
+                array('id'=>'compT2','id2' => 'mat2'),
+                array('id'=>'compT3','id2' => 'mat3'),
+                array('id'=>'compT4','id2' => 'mat4'),
+                array('id'=>'compT5','id2' => 'mat5'),
+                array('id'=>'compT6','id2' => 'mat6'),
+                array('id'=>'compT7','id2' => 'mat7'),
+            );
+            ?>
+            <p> Compétence Transverse<br> </p>
+            <button id="bouttonT" class="detail">détails</button> 
+            <div class="compTransverse">
+                <?php
+                for ($i = $j - 1; $i >= 0; $i--) {
+                    if(isset($compTunique[$i])){
+                        $sql3 = $bdd->prepare("SELECT * FROM compTransverse where nomCompT = ?");
+                        $reponse2 = $sql3->execute(array($compTunique[$i]));
+                
+                        while ($donnees3 = $sql3->fetch() and $row = array_shift($divsCompT)) {
+                            ?>
+                            <div id="<?php echo $row['id']; ?>" class="compT">
+                                <p>Compétence : <?php echo $donnees3['nomCompT']; ?><br> </p>
+                                <p>Description : <?php echo $donnees3['description']; ?><br> </p>
+                            </div>
+                            <?php
+                        }
+                    }
+                }
+            ?>
+            </div>  
         </div>    
     </div>
 </body>

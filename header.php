@@ -12,16 +12,7 @@
       <li><a href="#">Mes matières</a></li>
       <li><a href="#">Mes compétences</a></li>
       <li><a href="quisommesnous.php"> Qui sommes nous?</a></li>
-      <li class="test"><a href="#">
-          <?php
-          echo $_SESSION['prénom'] . ' ' . $_SESSION['nom'];
-          ?>
-        </a>
-        <ul class="sousmenu">
-          <li><a href="#">Mon compte</a></li>
-          <li><a href="connexion.php">Déconnexion</a></li>
-        </ul>
-      </li>
+      <li class="right"><a href="moncompte.php"> Mon Compte </a></li>
     </ul>
   </nav>
 </header>
