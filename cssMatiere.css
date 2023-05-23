@@ -1,102 +1,117 @@
-.matiere{
-    border-width:1px;
-    border-style:double;
-    border-color:black;
-    margin: 20px;
-    padding: 5px;
+.container form.card {
+  width: 190px;
+  height: 254px;
+  background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-.transverse{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
+
+
+.matiere {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
   margin: 20px;
   padding: 5px;
 }
 
-.compTransverse{
-  display: none;
-}
-.ajouter{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
+.transverse {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
   margin: 20px;
   padding: 5px;
-  display: none;
 }
-.modifier{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
-  margin: 20px;
-  padding: 5px;
+
+.compTransverse {
   display: none;
 }
 
-
-.compT{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
-  margin: 20px;
-  padding: 5px;
-}
-.eleve{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
-  margin: 20px;
-  padding: 5px;
-}
-.eleveG{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
+.ajouter {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
   margin: 20px;
   padding: 5px;
   display: none;
 }
 
-.mat{
-    display: none;
+.modifier {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
+  display: none;
 }
 
-.competence{
-    border-width:1px;
-    border-style:double;
-    border-color:black;
-    margin: 20px;
-    padding: 5px;
+
+.compT {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
+}
+
+.eleve {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
+}
+
+.eleveG {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
+  display: none;
+}
+
+.mat {
+  display: none;
+}
+
+.competence {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
 }
 
 .barre {
-    display: flex;
-    height: 10px;
-    background-color: #e5e5e5;
-    border-radius: 5px;
-    overflow: hidden;
-    
-  }
-  .barre span {
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 10px;
-  }
-  .acquise {
-    background-color: green;
-    color: white;
-  }
-  .en-cours {
-    background-color: orange;
-    color: white;
-  }
-  .non-acquise {
-    background-color: red;
-    color: white;
-  }
+  display: flex;
+  height: 10px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  overflow: hidden;
 
-  
+}
+
+.barre span {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 10px;
+}
+
+.acquise {
+  background-color: green;
+  color: white;
+}
+
+.en-cours {
+  background-color: orange;
+  color: white;
+}
+
+.non-acquise {
+  background-color: red;
+  color: white;
+}
