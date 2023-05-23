@@ -8,11 +8,10 @@ catch (Exception $e)
 {
    die('Erreur : ' . $e->getMessage());
 }
-$_SESSION['mail']= 'Eric.dupond@gmail.com' ;
-$_SESSION['classe']='1';
+
 
 $sql=$bdd->prepare("SELECT distinct nomMatière AS matiere FROM enseigné WHERE mailP = ? ");
-$sql->execute(array($_SESSION['mail']));
+$sql->execute(array($_SESSION['mailP']));
 $tabComp=array(array());
 $increment=0;
 
@@ -26,7 +25,7 @@ while ($donnees = $sql->fetch() ) {
         $tabComp[$increment][2]=$donnees2['descr'];
 
         $sql2=$bdd->prepare("SELECT * FROM evaluation WHERE demandeur = ? and compétence = ? ");
-        $sql2->execute(array($_SESSION['mail'],$donnees2['comp']));
+        $sql2->execute(array($_SESSION['mailP'],$donnees2['comp']));
 
         while ($donnees2 = $sql2->fetch() ) {
             $tabComp[$increment][3]=$donnees2['demandeur'];
