@@ -2,7 +2,6 @@
 
 session_start();
 
-
 function getDatabaseConnection()
 {
     try {
