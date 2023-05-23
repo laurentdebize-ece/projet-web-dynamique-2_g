@@ -10,7 +10,7 @@
     <ul class="menu">
       <li><a href="pageProf.php">Accueil</a></li>
       <li><a href="matiereP.php">Mes matières</a></li>
-      <li><a href="#">Mes compétences</a></li>
+      <li><a href="competenceP.php">Mes compétences</a></li>
       <li><a href="quisommesnousP.php"> Qui sommes nous?</a></li>
       <li class="test"><a href="#">
           <?php
