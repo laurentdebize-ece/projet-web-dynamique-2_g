@@ -283,11 +283,135 @@ if(isset($_POST["update"])){
                         $sql3 = $bdd->prepare("SELECT * FROM compTransverse where nomCompT = ?");
                         $reponse2 = $sql3->execute(array($compTunique[$i]));
                 
-                        while ($donnees3 = $sql3->fetch() and $row = array_shift($divsCompT)) {
+                        while ($donnees5 = $sql3->fetch() and $row = array_shift($divsCompT)) {
                             ?>
                             <div id="<?php echo $row['id']; ?>" class="compT">
-                                <p>Compétence : <?php echo $donnees3['nomCompT']; ?><br> </p>
-                                <p>Description : <?php echo $donnees3['description']; ?><br> </p>
+                                <p>Compétence : <?php echo $donnees5['nomCompT']; ?><br> </p>
+                                <p>Description : <?php echo $donnees5['description']; ?><br> </p>
+
+                                <?php
+                                $eval = $bdd->prepare("SELECT * FROM evaluation WHERE receveur = ?  and compétence = ?");
+                                $eval->execute(array($_SESSION['mail'],$donnees5['nomCompT']));
+                                if(($donnees3 = $eval->fetch())!=null){
+                                    if($donnees3['evalEleve']!= null){
+                                        ?>
+                                        <p>notation élève :</p><br>
+                                        <?php 
+                                        if($donnees3['evalEleve']== 1){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="non-acquise">Non acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($donnees3['evalEleve']==2){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="en-cours">en-cours</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($donnees3['evalEleve']==3){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="acquise">Acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                        <form method="post" action="matiereE.php">
+                                            <input type="hidden" name="update" value= "NULL">
+                                            <input type="hidden" name="matiere" value= "compT">
+                                            <input type="hidden" name="comp" value= "<?php echo $donnees5['nomCompT']; ?>">
+                                            <button type="submit">modifier</button>
+                                        </form>
+                                        <p>date butoir:</p> <?php 
+                                        echo htmlspecialchars($donnees3['dateEval']);
+                                        ?> <br> <br> <?php
+                                        ?>
+                                        <p>notation prof :</p><br>
+                                        <?php 
+                                        if($donnees3['evalProf']<= 33){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="non-acquise">Non acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($donnees3['evalProf']>=34 and $donnees3['evalProf']<=66){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="en-cours">en-cours</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        else if ($donnees3['evalProf']>=67){
+                                            ?>
+                                            <div class="barre">
+                                                <span class="acquise">Acquise</span>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                        <p>Commentaire prof :</p><br>
+                                        <?php 
+                                        if($donnees3['commentaire']!= null){
+                                            echo htmlspecialchars($donnees3['commentaire']);
+                                        }
+
+
+                                    }
+                                    if($donnees3['evalEleve']==NULL){
+                                        ?>
+                                        <form method="post" action="matiereE.php">
+                                            <label>votre évaluation:</label><br>
+                                            <label>
+                                                <input type="radio" name="evalE" value="3" checked="checked">
+                                                Acquis
+                                            </label>
+                                            <label>    
+                                                <input type="radio" name="evalE" value="2" >
+                                                En Cours 
+                                            </label>
+                                            <label>    
+                                                <input type="radio" name="evalE" value="1" >
+                                                Non acquis 
+                                            </label>
+                                            <input type="hidden" name="matiere" value= "compT">
+                                            <input type="hidden" name="comp" value= "<?php echo $donnees5['nomCompT']; ?>">
+                                            <input type="hidden" name="auto" value= "0">
+                                            <input type="submit" name="submit"> 
+                                        </form>
+                                        <p>date butoir:</p> <?php 
+                                        echo htmlspecialchars($donnees3['dateEval']); 
+                                    }
+                                }
+                                /*
+                                else{
+                                    ?>
+                                    <form method="post" action="matiereE.php">
+                                        <label>votre évaluation:</label><br>
+                                        <label>
+                                            <input type="radio" name="evalE" value="3" checked="checked">
+                                            Acquis
+                                        </label>
+                                        <label>    
+                                            <input type="radio" name="evalE" value="2" >
+                                            En Cours 
+                                        </label>
+                                        <label>    
+                                            <input type="radio" name="evalE" value="1" >
+                                            Non acquis 
+                                        </label>
+                                        <input type="hidden" name="matiere" value= "compT">
+                                        <input type="hidden" name="comp" value= "<?php echo $donnees3['nomCompT']; ?>">
+                                        <input type="hidden" name="auto" value= "1">
+                                        <input type="submit" name="submit"> 
+                                    </form>
+                                    <?php
+                                }
+                                */
+                                ?>
                             </div>
                             <?php
                         }
