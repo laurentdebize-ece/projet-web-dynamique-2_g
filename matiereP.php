@@ -215,7 +215,7 @@ if(isset($_POST["tous"])){
             <div class="matiere">
 
                 <p> Matière : <?php echo $donnees['matiere']; ?><br> </p>
-                <button id="<?php echo $row['id']; ?>" class="detail">détails</button> 
+                <button id="<?php echo $row['id']; ?>" class="detail full-rounded">détails</button> 
                 <div id="<?php echo $row['id2']; ?>" class="mat" >
                     <?php
                         while ($donnees2 = $comp->fetch() and $row2 = array_shift($divsComp)) {
@@ -230,9 +230,9 @@ if(isset($_POST["tous"])){
                                 <p> Compétence : <?php echo $donnees2['comp']; ?><br> </p>
                                 <p> Description : <?php echo $donnees2['descr']; ?><br> </p>
                                 
-                                <button id="<?php echo $row2['bouttonID']; ?>" class="detail">élève</button>
-                                <button id="<?php echo $row2['bouttonModif']; ?>" class="detail">Modifier</button> 
-                                <div id="<?php echo $row2['modif']; ?>" class="modifier">
+                                <button id="<?php echo $row2['bouttonID']; ?>" class="detail full-rounded">élève</button>
+                                <button id="<?php echo $row2['bouttonModif']; ?>" class="detail full-rounded">Modifier</button> 
+                                <div id="<?php echo $row2['modif']; ?>" class="modifier full-rounded">
                                     <form method="post" action="matiereP.php">
                                         <label>Modifier <?php echo $competence ?>:</label><br>
                                         <label>
