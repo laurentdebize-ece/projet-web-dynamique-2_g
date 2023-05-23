@@ -162,15 +162,16 @@ function affichage($tabComp){
     <link rel="stylesheet" href="cssMatiere.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="scriptMatiere.js"></script>
-    <title>Document</title>
+    <title>Compétences</title>
 </head>
 
 <body>
 
     <?php include("headerP.php"); ?>
     <?php include("footerP.php"); ?>
-    <div>
-        <form action="competenceP.php" method="post">
+
+    <div class="container">
+        <form action="competenceP.php" method="post" class="card">
             <button type="submit" name="tri" value='NULL'> Default </button>
             <button type="submit" name="tri" value="1"> Croissant Alphabétique </button>
             <button type="submit" name="tri" value="2"> Décroissant Alphabétique </button>

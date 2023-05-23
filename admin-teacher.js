@@ -8,11 +8,13 @@ const form_evalP = document.getElementById('form-evalP');
 
 deleteBtn.addEventListener('click', () => {
     form_del.classList.add('active');
+    form_add.classList.remove('active');
 });
 
 
 addBtn.addEventListener('click', () => {
     form_add.classList.add('active');
+    form_del.classList.remove('active');
 });
 
 evalPBtn.addEventListener('click', () => {
