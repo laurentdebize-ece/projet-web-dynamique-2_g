@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,12 +17,16 @@
 <?php include("footerE.php"); ?>
 <?php
 
-session_start();
+
 
 $servername = "localhost";
 $utilisateur = "root";
 $mdp = "root";
-$bdd = "skillzz1";
+<<<<<<< HEAD
+$bdd = "skillzz";
+=======
+$bdd = "Skillzz";
+>>>>>>> origin
 
 $conn = new mysqli($servername, $utilisateur, $mdp, $bdd);
 

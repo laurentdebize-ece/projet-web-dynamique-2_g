@@ -2,7 +2,11 @@
 $servername = "localhost";
 $utilisateur = "root";
 $mdp = "root";
-$bdd = "skillzz1";
+<<<<<<< HEAD
+$bdd = "skillzz";
+=======
+$bdd = "Skillzz";
+>>>>>>> origin
 
 $conn = new mysqli($servername, $utilisateur, $mdp, $bdd);
 

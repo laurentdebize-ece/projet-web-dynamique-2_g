@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="header.css" />
+  <link rel="stylesheet" href="headerE.css" />
 </head>
 <header>
   <div class="logo">
@@ -8,10 +8,10 @@
   </div>
   <nav>
     <ul class="menu">
-      <li><a href="#">Accueil</a></li>
+      <li><a href="pageEtudiant.php">Accueil</a></li>
       <li><a href="matiereE.php">Mes matières</a></li>
-      <li><a href="#">Mes compétences</a></li>
-      <li><a href="quisommesnous.php"> Qui sommes nous?</a></li>
+      <li><a href="competenceE.php">Mes compétences</a></li>
+      <li><a href="quisommesnousE.php"> Qui sommes nous?</a></li>
       <li class="test"><a href="#">
           <?php
           echo $_SESSION['prénom'] . ' ' . $_SESSION['nom'];
