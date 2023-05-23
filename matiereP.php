@@ -224,11 +224,22 @@ if(isset($_POST["tous"])){
                                 <?php
                                 $competence=$donnees2['comp'];
                                 $eleve = $bdd->prepare("SELECT * FROM suiviMatière WHERE nomMatière = ? ");
-                                $reponse2= $eleve->execute(array($matiere));
+                                $eleve->execute(array($matiere));
+
+                                $evalAdmin =$bdd->prepare("SELECT * FROM evaluation WHERE compétence = ? and receveur = ?");
+                                $evalAdmin->execute(array($competence,$_SESSION['mailP']));
+                                
 
                                 ?>
                                 <p> Compétence : <?php echo $donnees2['comp']; ?><br> </p>
                                 <p> Description : <?php echo $donnees2['descr']; ?><br> </p>
+                                <?php
+                                if($Admin=$evalAdmin->fetch()){
+                                    ?>
+                                    <p> A faire évaluer avant le : <?php echo $Admin['dateEval']; ?><br> </p>
+                                    <?php
+                                }
+                                ?>
                                 
                                 <button id="<?php echo $row2['bouttonID']; ?>" class="detail full-rounded">élève</button>
                                 <button id="<?php echo $row2['bouttonModif']; ?>" class="detail full-rounded">Modifier</button> 
