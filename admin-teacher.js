@@ -2,6 +2,8 @@ const deleteBtn = document.getElementById('f-delete');
 const addBtn = document.getElementById('f-add');
 const form_del = document.getElementById('form-delete');
 const form_add = document.getElementById('form-add');
+const evalPBtn = document.getElementById('f-evalP');
+const form_evalP = document.getElementById('form-evalP');
 
 
 deleteBtn.addEventListener('click', () => {
@@ -10,6 +12,10 @@ deleteBtn.addEventListener('click', () => {
 
 
 addBtn.addEventListener('click', () => {
+    form_add.classList.add('active');
+});
+
+evalPBtn.addEventListener('click', () => {
     form_add.classList.add('active');
 });
 
