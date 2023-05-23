@@ -129,10 +129,9 @@ if(isset($_POST["tous"])){
 </head>
 
 <body>
-    <header> 
-        <p>o
-        </p>
-    </header>
+    <?php include("headerP.php"); ?>
+    <?php include("footerP.php"); ?>
+    
     <div>
     <?php
         

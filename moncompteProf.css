@@ -1,0 +1,31 @@
+.container {
+    width: 650px;
+    margin: auto;
+    margin-top: 90px;
+    border: solid;
+    border-width: 1px;
+    background-color: #def5eb;
+  }
+  .field {
+    margin-bottom: 26px;
+  }
+  .field label {
+    display: block;
+    font-weight: bold;
+    margin-left: 25px;
+  }
+  .field input {
+    width: 585px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 25px;
+  }
+  .edit-button {
+    margin-top: 10px;
+    
+  }  
+  h1{
+    color: #1f7b55;
+    text-align: center;
+  }

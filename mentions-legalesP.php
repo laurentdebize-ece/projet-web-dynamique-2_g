@@ -4,8 +4,8 @@
 	<link rel="stylesheet" type="text/css" href="mentions-legales.css">
 </head>
 <body>
-    <?php include("header.php"); ?>
-    <?php include("footer.php"); ?>
+    <?php include("headerP.php"); ?>
+    <?php include("footerP.php"); ?>
 	<div id="content">
 		<h1>Mentions légales</h1>
 		<p>Le site SKILLZZZ est édité par EQUIPE G GROUPE 2 :<br><br>
