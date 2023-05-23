@@ -10,7 +10,6 @@ catch (Exception $e)
 }
 
 
-
 $sql=$bdd->prepare("SELECT nomMatière AS matiere FROM suiviMatière WHERE mailE = ? ");
 $sql->execute(array($_SESSION['mailE']));
 $tabComp=array(array());

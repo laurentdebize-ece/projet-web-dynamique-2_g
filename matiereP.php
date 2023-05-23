@@ -196,12 +196,11 @@ if(isset($_POST["tous"])){
 </head>
 
 <body>
-    <header> 
-        
-    </header>
-    <?php include("headerP.php"); ?>
 
-    <p>aaa</p>
+    <?php include("headerP.php"); ?>
+    <?php include("footerP.php"); ?>
+    
+
     <div>
     <?php
         

@@ -11,9 +11,11 @@ catch (Exception $e)
 $sql=$bdd->prepare("SELECT * FROM elève WHERE mailE = ? ");
 $reponse=$sql->execute(array($_SESSION['mailE']));
 
-while($donnees = $sql->fetch()){
-    $_SESSION['classe'] = $donnees['numClasse'];
+while($donnees =$sql->fetch()){
+    $_SESSION['classe']=$donnees['numClasse'];
 }
+
+
 
 $sql=$bdd->prepare("SELECT nomMatière AS matiere FROM suiviMatière WHERE mailE = ? ");
 $reponse=$sql->execute(array($_SESSION['mailE']));
