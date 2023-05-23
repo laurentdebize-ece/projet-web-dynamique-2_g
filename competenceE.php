@@ -87,10 +87,10 @@ foreach (range(1, 100) as $num) {
 </head>
 
 <body>
-    <header> 
-        <p>aa</p><br>
-        <?php echo $_SESSION['mail']; ?>
-    </header>
+
+    <?php include("headerE.php"); ?>
+    <?php include("footerE.php"); ?>
+
     <div>
         <form action="competenceE.php" method="post">
             <button type="submit" name="tri" value='NULL'> Default </button>

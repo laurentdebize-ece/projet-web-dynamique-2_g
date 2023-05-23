@@ -23,7 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $serveur = "localhost";
       $utilisateur = "root";
       $motdepasse = "root";
+<<<<<<< HEAD
+      $bdd = "skillzz";
+=======
       $bdd = "Skillzz";
+>>>>>>> origin
 
       try {
         $connexion = new PDO("mysql:host=$serveur;dbname=$bdd", $utilisateur, $motdepasse);
