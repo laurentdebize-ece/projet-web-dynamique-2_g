@@ -15,18 +15,13 @@ session_start();
 
 <?php include("headerE.php"); ?>
 <?php include("footerE.php"); ?>
+
 <?php
-
-
 
 $servername = "localhost";
 $utilisateur = "root";
 $mdp = "root";
-<<<<<<< HEAD
-$bdd = "skillzz";
-=======
 $bdd = "Skillzz";
->>>>>>> origin
 
 $conn = new mysqli($servername, $utilisateur, $mdp, $bdd);
 
