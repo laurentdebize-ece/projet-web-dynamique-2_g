@@ -1,0 +1,96 @@
+body {
+  background: #f6f5f7;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  margin-top: 150px;
+  color: rgb(29, 28, 28);
+}
+
+.container {
+  width: 950px;
+  position: relative;
+  text-align: center;
+}
+
+.carrousel {
+  display: grid;
+  grid-auto-flow: column;
+  scroll-behavior: auto;
+  gap: 1.2rem;
+  overflow-y: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  margin-top: 10px;
+}
+
+.carrousel::-webkit-scrollbar {
+  display: none;
+}
+
+.bloc {
+  scroll-snap-align: start;
+  border-radius: 30px;
+  min-height: 120px;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+
+.bloc p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.bouton {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.bloc:nth-child(odd) {
+  background: linear-gradient(-229deg, #adf0d1, #F1F1D3);
+}
+
+.bloc:nth-child(even) {
+  background: linear-gradient(-229deg, #F1F1D3, #adf0d1);
+}
+
+.container1 {
+  margin-bottom: 20px;
+}
+
+.container2 {
+  margin-top: 20px;
+}
+
+.carrousel2 {
+  margin-top: 20px;
+}
+
+
+::-webkit-scrollbar {
+  width: 9px;
+  background-color: #d8d8b0;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 3px 2px rgba(0, 0, 0, 0.144);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #60947e;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 3px 2px rgba(0, 0, 0, 0.144);
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background-color: #578873;
+}

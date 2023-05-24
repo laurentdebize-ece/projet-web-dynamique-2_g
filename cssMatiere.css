@@ -1,102 +1,162 @@
-.matiere{
-    border-width:1px;
-    border-style:double;
-    border-color:black;
-    margin: 20px;
-    padding: 5px;
+.container form.card {
+  width: 400px;
+  height: 300px;
+  background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 50%;
+  margin-top: 50px;
+  transform: translateX(-50%);
 }
-.transverse{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
+
+button {
+  font-size: 14px;
+  position: relative;
+  margin: auto;
+  padding: 1em 2.5em 1em 2.5em;
+  border: none;
+  background: #85b185;
+  transition: all 0.1s linear;
+  box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button span {
+  color: black;
+}
+
+button .border {
+  position: absolute;
+  border: 0.15em solid #85b185;
+  transition: all 0.2s 0.08s linear;
+  top: 50%;
+  left: 50%;
+  width: 18em;
+  height: 3em;
+  transform: translate(-50%, -50%);
+}
+
+button:hover .border {
+  display: block;
+  width: 20em;
+}
+
+.full-rounded {
+  border-radius: 2em;
+}
+
+
+.matiere {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
   margin: 20px;
   padding: 5px;
 }
 
-.compTransverse{
+.transverse {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
+}
+
+.compTransverse {
   display: none;
 }
-.ajouter{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
-  margin: 20px;
-  padding: 5px;
-  display: none;
-}
-.modifier{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
+
+.ajouter {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
   margin: 20px;
   padding: 5px;
   display: none;
 }
 
-
-.compT{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
-  margin: 20px;
-  padding: 5px;
-}
-.eleve{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
-  margin: 20px;
-  padding: 5px;
-}
-.eleveG{
-  border-width:1px;
-  border-style:double;
-  border-color:black;
+.modifier {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
   margin: 20px;
   padding: 5px;
   display: none;
 }
 
-.mat{
-    display: none;
+
+.compT {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
 }
 
-.competence{
-    border-width:1px;
-    border-style:double;
-    border-color:black;
-    margin: 20px;
-    padding: 5px;
+.eleve {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
+}
+
+.eleveG {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
+  display: none;
+}
+
+.mat {
+  display: none;
+}
+
+.competence {
+  border-width: 1px;
+  border-style: double;
+  border-color: black;
+  margin: 20px;
+  padding: 5px;
 }
 
 .barre {
-    display: flex;
-    height: 10px;
-    background-color: #e5e5e5;
-    border-radius: 5px;
-    overflow: hidden;
-    
-  }
-  .barre span {
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 10px;
-  }
-  .acquise {
-    background-color: green;
-    color: white;
-  }
-  .en-cours {
-    background-color: orange;
-    color: white;
-  }
-  .non-acquise {
-    background-color: red;
-    color: white;
-  }
+  display: flex;
+  height: 10px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  overflow: hidden;
 
-  
+}
+
+.barre span {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 10px;
+}
+
+.acquise {
+  background-color: green;
+  color: white;
+}
+
+.en-cours {
+  background-color: orange;
+  color: white;
+}
+
+.non-acquise {
+  background-color: red;
+  color: white;
+}

@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f6fd;
+}
+body .app-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons-container {
+  width: 75%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+}
+.icons-container .icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  animation: floating 8s ease-out infinite;
+}
+.icons-container .icon svg {
+  cursor: pointer;
+}
+.icons-container .icon:first-child, .icons-container .icon:last-child {
+  top: 40%;
+}
+.icons-container .icon:first-child .min-icon, .icons-container .icon:last-child .min-icon {
+  position: relative;
+  top: -13%;
+  left: -10%;
+}
+.icons-container .icon:first-child h4, .icons-container .icon:last-child h4 {
+  position: relative;
+  top: -10%;
+}
+.icons-container .icon:nth-child(2), .icons-container .icon:nth-child(3) {
+  top: 0%;
+  margin: 100px;
+}
+.icons-container .icon:nth-child(2) .min-icon, .icons-container .icon:nth-child(3) .min-icon {
+  position: relative;
+  top: -22%;
+  left: -10%;
+}
+.icons-container .icon:nth-child(2) h4, .icons-container .icon:nth-child(3) h4 {
+  position: relative;
+  top: -18%;
+}
+
+.back {
+  position: fixed;
+  top: 1%;
+  left: 1%;
+  opacity: 0;
+}
+.back.active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#i-dec{
+  position:absolute;
+  top: 5%;
+  left: 5%;
+  cursor: pointer;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-2px, 8px);
+  }
+  75% {
+    transform: translate(2px, -8px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
